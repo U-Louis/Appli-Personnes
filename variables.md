@@ -9,3 +9,6 @@
 `var modal = $("")  
 `var aPerson = []`
 `var btnLogAction = $("btnlogaction")`  
+`var adress = http://srvapi/api/stagiaire/`
+# Liste des fonctions
+`function getById(nb)`  
