@@ -9,3 +9,4 @@
 `var modal = $("")  
 `var aPerson = []`
 `var btnLogAction = $("btnlogaction")`  
+`function BDD()`  
