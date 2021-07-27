@@ -1,16 +1,16 @@
-$(function(){
-    var httpRequest = new XMLHttpRequest() ;
-    var btnCreatePerson = $("#btncreateperson") ;
-    var btnDeletePerson = $("#btndelete");
-    var btnUpdatePerson = $("#btnupdate");
-    var btnReadPerson = $("#btnread") ;
-    var searchBar = $("#search");
-    var btnSearch = $("btnsearch")  ;
-    var modal = $("")  ;  
-}
+
+    // var httpRequest = new XMLHttpRequest() ;
+    // var btnCreatePerson = $("#btncreateperson") ;
+    // var btnDeletePerson = $("#btndelete");
+    // var btnUpdatePerson = $("#btnupdate");
+    // var btnReadPerson = $("#btnread") ;
+    // var searchBar = $("#search");
+    // var btnSearch = $("btnsearch")  ;
+    // var modal = $("")  ;  
+    // var btnLogAction = $("btnlogaction");
 
 var aPerson = [];
-var btnLogAction = $("btnlogaction");
+
 var adress = "http://srvapi/api/stagiaire/"
 
 /**
@@ -32,11 +32,9 @@ function getById(nb){
             
             if (xhr.readyState == 4 && xhr.status == "200") {
                 for(key in users){
-                    console.table(key + " : " +users[key])
+                    // console.table(key + " : " +users[key])
                     aUser[key]=users[key];
                 };
-               
-                
                 
             } else {
                 console.error(users);
@@ -44,9 +42,12 @@ function getById(nb){
         }
         return aUser;
     
-});
 
+}
 
-
+var a = getById(92);
+console.log(a.id);
+console.log(a.nom);
+console.log(a.prenom);
 
 
