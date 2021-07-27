@@ -1,11 +1,12 @@
 # Listes des Variables
 `var httpRequest = new XMLHttpRequest()`  
 `var btnCreatePerson = $("#btncreateperson")`  
-`var btnDeletePerson = $("#btndelete")`  
-`var btnUpdatePerson = $("#btnupdate)`  
+`var btnDeletePerson = $("#btndeleteperson")`  
+`var btnUpdatePerson = $("#btnupdateperson")`  
 `var btnReadPerson = $("#btnread")`  
-`var searchBar = $("#search")`  
+`var btnPrintList = $("#btnprintlist")`  
+`var searchBar = $("#searchbar")`  
 `var btnSearch = $("btnsearch")  
-`var modal = $("")  
+`var modal = $("")`  
 `var aPerson = []`
 `var btnLogAction = $("btnlogaction")`  
