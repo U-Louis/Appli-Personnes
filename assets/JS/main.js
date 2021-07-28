@@ -15,6 +15,7 @@ var nom;
 var prenom;
 var valider;
 var addForm;
+var addLog;
 
 
 // fonctions executee au chargement de la page web
@@ -33,17 +34,13 @@ $(document).ready(function() {
     prenom = $("#prenom");
     valider = $("#btnvalid");
     addForm= $("#addForm");
-    log= $("#log");
+    addLog= $("#log");
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
     valider.on("click", function() { create(nom, prenom) });
     btnCreatePerson.on("click",showForm);
     btnLogAction.on("click",showLog);
-
-
-
-
 
 });
 
@@ -159,22 +156,36 @@ function create(nom, prenom) {
     }
 }
 
-function showForm(){          
-        if(addForm.is(':hidden'))
-         {
-           addForm.show('slow');
-           log.hide('slow');
+/** function showForm permet d'afficher formulaire de creation de profil 
+ * Clement et Beata
+ */ 
+function showForm(){       
+    var flag = false;
+
+        if(flag == false){
+           addForm.removeClass("d-none")
+           addForm.addClass("d-flex")
+           flag = true;
          }else{
-           addForm.hide('slow');
+           addForm.removeClass("d-flex")
+           addForm.addClass("d-none")
+            flag = false;
          }
 }
 
+/** function showLog permet d'afficher formulaire de creation de profil 
+ * Clement et Beata
+ */
 function showLog(){
-    if(log.is(':hidden'))
-    {
-      log.show('slow');
-      addForm.hide('slow');
-    }else{
-      log.hide('slow');
-    }
+    var flag = false;
+
+    if(flag == false){
+        addLog.removeClass("d-none")
+        addLog.addClass("d-flex")
+       flag = true;
+     }else{
+        addLog.removeClass("d-flex")
+        addLog.addClass("d-none")
+        flag = false;
+     }
 }
