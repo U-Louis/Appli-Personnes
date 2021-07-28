@@ -14,6 +14,9 @@ var adress = "http://srvapi/api/stagiaire/";
 var nom;
 var prenom;
 var valider;
+var showId;
+var showNom;
+var showPrenom;
 var addForm;
 
 
@@ -32,6 +35,9 @@ $(document).ready(function() {
     nom = $("#nom");
     prenom = $("#prenom");
     valider = $("#btnvalid");
+    showId = $("#showId");
+    showNom = $("#showNom");
+    showPrenom = $("#showPrenom");
     addForm= $("#addForm");
     log= $("#log");
 
@@ -56,25 +62,14 @@ $(document).ready(function() {
  */
 function recherche(objet) {
 
-    $(modal).empty();
-    $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
-        objet.prenom + '</td>' + '</tr>' + '</table>');
-    var filter, ul, li, a, i, txtValue;
-
-    ul = document.getElementsByTagName("tr");
-    li = ul.getElementsByTagName('td');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-    // Et on affiche !
+    $(showId).empty();
+    // $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
+    //     objet.prenom + '</td>' + '</tr>' + '</table>');
+    $(showId).append(objet.id);
+    $(showNom).empty();
+    $(showNom).append(objet.nom);
+    $(showPrenom).empty();
+    $(showPrenom).append(objet.prenom);
 }
 
 
@@ -136,16 +131,16 @@ function getById(nb, callback) {
 // ADD A USER
 
 function create(nom, prenom) {
-    console.log("POST : " + url);
+    console.log("POST : " + adress);
 
     var data = {};
-    data.nom = "TERRIEUR";
-    data.prenom = "Alex";
+    data.nom = nom;
+    data.prenom = prenom;
     // var data = {"nom":"TERRIEUR","prenom":"Alex"};
     var json = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
+    xhr.open("POST", adress, true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.send(json);
 
