@@ -1,14 +1,16 @@
-function printTypeOfAttribute(objet){
+/**
+ * Affiche les attribut nom, prenom, id de l'objet
+ * @param {Object} object 
+ */
+function print(object){
     
-    console.log(objet.id);
-    console.log(objet.prenom);
-    console.log(objet.nom);
+    console.log("id : "+  object.id + "");
+    console.log("nom : " + object.nom);
+    console.log("prenom : " + object.prenom);
 }
-function print(a){
-    
-    console.log("id : "+  a.id + "");
-    console.log("nom : " + a.nom);
-    console.log("prenom : " + a.prenom);
+/**
+ * Test la fonction getById et affiche le résultat
+ */
+function testGetById(){
+    getById(92,print);
 }
-
-getById(92,print);
