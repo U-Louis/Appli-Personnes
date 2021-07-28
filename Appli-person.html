@@ -103,13 +103,54 @@
         <!-- PROFILE DIV -->
         <div class="profile_div row align-items-end">
             <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
+                
+            </div>
+            <div class="col">
+
+                <!-- SHOW SEARCH DIV -->
+                <div class="d-flex position-relative">
+
+                    <div class="card mb-3 d-none" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                            <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div id="listofmember" class="overflow-auto" >
+
+                            </div>
+
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Les détails du profil</h5>                        
+                                    <ul class="list-group">                                                      
+                                        <li class="list-group-item list-group-item-dark">ID</li>
+                                        <li id="showId" class="list-group-item list-group-item-light"></li>
+
+                                        <li class="list-group-item list-group-item-dark">NOM</li>
+                                        <li id="showNom" class="list-group-item list-group-item-light"></li>
+
+                                        <li class="list-group-item list-group-item-dark">PRENOM</li>
+                                        <li id="showPrenom" class="list-group-item list-group-item-light"></li>
+                                      </ul>
+                                    </br>
+                                      <div><input id="btnupdate" type="button" value="Modifier" class="btn-default btn-lg">
+                                      <input id="btndelete" type="button" value="Supprimer" class="btn-default btn-lg"></div>
+
+                                      
+                            </div>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+
+                <!-- SHOW ADD PROFILE DIV -->
+                <div class="card mb-3 d-none" style="max-width: 540px" id="addForm">
                     <div class="row g-0">
                         <div class="col-md-4">
                         <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
                         </div>
 
-                        <div class="col-md-8">
+                        <div class="col-md-8 in">
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Ajouter un nouveau profil</h5>                        
                                 <ul class="list-group">                                                      
@@ -130,55 +171,26 @@
                         </div>
                     </div>
               </div>
-            </div>
-            <div class="col">
-                <div class="d-flex position-relative">
 
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                            <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
-                            </div>
-
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Les détails du profil</h5>                        
-                                    <ul class="list-group">                                                      
-                                        <li class="list-group-item list-group-item-dark">ID</li>
-                                        <li class="list-group-item list-group-item-light">1</li>
-
-                                        <li class="list-group-item list-group-item-dark">NOM</li>
-                                        <li class="list-group-item list-group-item-light">Jean</li>
-
-                                        <li class="list-group-item list-group-item-dark">PRENOM</li>
-                                        <li class="list-group-item list-group-item-light">Dujardin</li>
-                                      </ul>
-                                    </br>
-                                      <div><input id="btnupdate" type="button" value="Modifier" class="btn-default btn-lg">
-                                      <input id="btndelete" type="button" value="Supprimer" class="btn-default btn-lg"></div>
-
-                                      
-                            </div>
-                            </div>
-                        </div>
-                  </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                       
-                        </div>
-
-                        <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Historique</h5>                        
-      
-                        </div>
-                        </div>
+              <!-- SHOW LOG DIV -->
+              <div class="card mb-3 invisible " style="max-width: 540px;" id="log">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                   
                     </div>
-              </div>
+
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Historique</h5>                        
+  
+                    </div>
+                    </div>
+                </div>
+          </div>
+
+            </div>
+            <div class="col">
+                
             </div>
           </div>
         </div>
