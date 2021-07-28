@@ -11,5 +11,6 @@
 `var btnLogAction = $("btnlogaction")`  
 `function BDD()`  
 `var adress = http://srvapi/api/stagiaire/`
-
+`var nom = $("#nom")`
+`var  prenom = $("#prenom")`
 
