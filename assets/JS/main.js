@@ -11,9 +11,6 @@ var aPerson;
 var btnLogAction;
 var httpRequest = new XMLHttpRequest();
 var adress = "http://srvapi/api/stagiaire/";
-var nom;
-var prenom;
-var valider;
 
 
 // fonctions executee au chargement de la page web
@@ -28,14 +25,9 @@ $(document).ready(function() {
     modal = $("#dynamSearch");
     aPerson = [];
     btnLogAction = $("#btnlogaction");
-    nom = $("#nom");
-    prenom = $("#prenom");
-    valider = $("#btnvalid");
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
-    valider.on("click", function() { create(nom, prenom) });
-
 
 
 
@@ -51,9 +43,7 @@ $(document).ready(function() {
 function recherche(objet) {
 
     $(modal).empty();
-    $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
-        objet.prenom + '</td>' + '</tr>' + '</table>');
-
+    $(modal).append('<span>' + objet.id + objet.nom + objet.prenom + '</span>');
     // Et on affiche !
 }
 
@@ -74,38 +64,75 @@ function getSearchValue() {
 
 /**
  * Lance une requête avec nb en paramètre puis lance la fonction fct une fois la requête terminée.
+ * @function getById
  * @param {Number} nb 
  * @param {Function} fct 
  * CEDRIC
  */
-function getById(nb, callback) {
-
+ function getById(nb,fct){/*Prend en en paramètre un nombre et une fonction*/
+    
     console.log("GET : " + adress + nb);
-
-    var xhr = new XMLHttpRequest();
-    var aUser = {};
+    
+    var xhr  = new XMLHttpRequest();
+    
     xhr.open('GET', adress + nb, true);
-    xhr.send(nb);
+    xhr.send(null);
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         var users = JSON.parse(xhr.responseText);
-
-        if (xhr.readyState == 4 && xhr.status == "200") {
-            for (key in users) {
-                console.table(key + " : " + users[key])
-                aUser[key] = users[key];
-            };
-
-            callback(users);
+        
+        if (xhr.readyState == 4 && xhr.status == "200") {/*vérifie si la requête fonctionne. */
+           
+        fct(users);  /*Lance la fonction fct avec le paramètre users */ 
 
         } else {
             console.error(users);
         }
     }
-    recherche(aUser);
-    return aUser;
+}
+/**
+ * getListOfMember envoie la requête pour récupérer la liste des stagiaire 
+ * et si  la requête aboutit active la fonction fct avec users passé en paramètre. 
+ * @function getListOfMember 
+ * @param {Fonction} fct 
+ */
+ function getListOfMember(fct){
+
+    console.log("GET : " + "http://srvapi/api/stagiaires");
+    var xhr  = new XMLHttpRequest();
+    xhr.open('GET', "http://srvapi/api/stagiaires", true);
+        xhr.send(null);
+
+        xhr.onload = function () {
+            var users = JSON.parse(xhr.responseText);
+            
+            if (xhr.readyState == 4 && xhr.status == "200") {/*vérifie si la requête fonctionne. */
+               
+            fct(users);  /*Lance la fonction fct avec le paramètre users */ 
+
+            } else {
+                console.error(users);
+            }
+        }
 
 }
+/**Ecrit la liste des membres dans une div.
+ * @function writeListeOfMember
+ * @param {Object} object 
+ */
+function writeListeOfMember(object){
+    
+    
+    for(key in object){
+        var p = document.createElement("p")
+        p.setAttribute("id",object[key].id)
+        $("#listofmember").append(p);
+        $("#" + object[key].id).html("id : " + object[key].id +"  nom : " + object[key].nom + "  prenom : " + object[key].prenom)  ;
+        
+    }
+}
+getListOfMember(writeListeOfMember);
+//Déclaration des variables 
 
 /**
  * function create permet d'ajouter une nouvelle personne à la BDD 
@@ -138,3 +165,4 @@ function create(nom, prenom) {
         }
     }
 }
+
