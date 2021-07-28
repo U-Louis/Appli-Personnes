@@ -4,6 +4,7 @@ var httpRequest;
 var btnCreatePerson;
 var btnDeletePerson;
 var btnUpdatePerson;
+var btnReadList;
 var btnReadPerson;
 var searchBar;
 var modal;
@@ -29,6 +30,7 @@ $(document).ready(function() {
     // Add Event
     searchBar.on("keyup", getSearchValue);
     btnReadList.click(function(){getListOfMember(writeListeOfMember)});
+    
 
 
 });
@@ -151,7 +153,10 @@ function delUser(nb){
         }
     }
 }
-
+function updateUser(nb){
+    console.log("PUT|PATCH : " + adress + nb);
+    
+}
 /**
  * function create permet d'ajouter une nouvelle personne à la BDD 
  * @param {string,string}  résultat input nom et prénom après submit du formulaire de création
