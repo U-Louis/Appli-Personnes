@@ -53,21 +53,7 @@ function recherche(objet) {
     $(modal).empty();
     $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
         objet.prenom + '</td>' + '</tr>' + '</table>');
-    var filter, ul, li, a, i, txtValue;
 
-    ul = document.getElementsByTagName("tr");
-    li = ul.getElementsByTagName('td');
-
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
     // Et on affiche !
 }
 
