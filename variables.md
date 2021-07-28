@@ -11,6 +11,5 @@
 `var btnLogAction = $("btnlogaction")`  
 `function BDD()`  
 `var adress = http://srvapi/api/stagiaire/`
-# Liste des fonctions
-`function getById(nb,fct)` Envoie une requête avec nb en paramètre, et une fonction fct. fct sera lancé lorsque la requête sera terminé.  
+
 
