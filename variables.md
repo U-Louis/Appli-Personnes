@@ -13,3 +13,4 @@
 `var adress = http://srvapi/api/stagiaire/`
 `var nom = $("#nom")`
 `var prenom = $("#prenom")`
+listofmember est l'id de la div qui contiendra la liste des membres  
