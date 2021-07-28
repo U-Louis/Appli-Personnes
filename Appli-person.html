@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,22 +22,21 @@
     <link rel="stylesheet" href="assets/CSS/Apli-person.css">
 
 </head>
-
 <body>
 
     <!-- CONTAINER -->
     <div class="container">
-
+        
         <!-- MAIN DIV -->
         <div class="buttons_div row">
             <!-- BUTTONS -->
             <div class="col1 ">
-                <div><input id="btnlogaction" type="button" value="Historique" class="btnlog btn-default btn-lg"></div>
-                </br>
-                <div><input id="btnread" type="button" value="Affichage de liste" class="btnaffichage btn-default btn-lg"></div>
-                </br>
-                <div><button id="btncreateperson" class="btncreate btn-lg btn-default"><i class="fas fa-user-plus"></i></button></div>
-                </br>
+            <div ><input id="btnlogaction" type="button" value="Historique" class="btnlog btn-default btn-lg"></div>
+            </br>
+            <div><input id="btnread" type="button" value="Affichage de liste" class="btnaffichage btn-default btn-lg"></div>
+            </br>
+            <div><button id="btncreateperson" class="btncreate btn-lg btn-default"><i class="fas fa-user-plus"></i></button></div>
+            </br>
             </div>
 
             <!-- TITLE -->
@@ -55,145 +53,156 @@
 
             <div class="central_div d-flex align-items-center justify-content-center flex-wrap">
                 <div class="d-flex flex-column justify-content-center align-items-center">
-
-                    </br>
+                    
+                </br>
 
                     <!-- RADIO -->
                     <div class="d-flex flex-direction-row">
                         <div class="ch1 form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
                         ID
                         </label>
                         </div>
 
                         <div class="ch2 form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
                         NOM
                         </label>
                         </div>
 
                         <div class="ch3 form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
                         PRENOM
                         </label>
 
                         </div>
                     </div>
 
-                    </br>
+                </br>
 
                     <!-- SEARCH -->
                     <div class="col">
                         <div class="searchDiv">
-                            <form class="search_form d-flex">
-                                <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            </form>
-                        </div>
+                        <form class="search_form d-flex">
+                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  onkeyup="myFunction()">
+                        </form></div>
                     </div>
-
-                    <div id="dynamSearch " class="list-group ">
-
-                    </div>
-
+                    
+                      <div id="dynamSearch" class="list-group">
+                        
+                      </div>
+                      
                 </div>
-            </div>
+            </div>   
         </div>
 
 
         <!-- PROFILE DIV -->
-        <div class="profile_div row align-items-end ">
-            <div class="col ">
-                <div class="card mb-3 " style="max-width: 540px; ">
-                    <div class="row g-0 ">
-                        <div class="col-md-4 ">
-                            <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png " class="img-fluid rounded-start " alt="... ">
-                        </div>
-
-                        <div class="col-md-8 ">
-                            <div class="card-body ">
-                                <h5 class="card-title fw-bold ">Ajouter un nouveau profil</h5>
-                                <ul class="list-group ">
-                                    <li class="list-group-item list-group-item-dark ">ID</li>
-                                    <input type="text ">
-
-                                    <li class="list-group-item list-group-item-dark ">NOM</li>
-                                    <input type="text " id="nom ">
-
-                                    <li class="list-group-item list-group-item-dark ">PRENOM</li>
-                                    <input type="text " id="prenom ">
-                                </ul>
-                                </br>
-                                <div><input id="btnvalid " type="submit " value="Valider " class="btn-default btn-lg "></div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="profile_div row align-items-end">
+            <div class="col">
+                
             </div>
-            <div class="col ">
-                <div class="d-flex position-relative ">
+            <div class="col">
 
-                    <div class="card mb-3 " style="max-width: 540px; ">
-                        <div class="row g-0 ">
-                            <div class="col-md-4 ">
-                                <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png " class="img-fluid rounded-start " alt="... ">
+                <!-- SHOW SEARCH DIV -->
+                <div class="d-flex position-relative">
+
+                    <div class="card mb-3 invisible" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                            <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div id="listofmember" class="overflow-auto" >
+
                             </div>
 
-                            <div class="col-md-8 ">
-                                <div class="card-body ">
-                                    <h5 class="card-title fw-bold ">Les détails du profil</h5>
-                                    <ul class="list-group ">
-                                        <li class="list-group-item list-group-item-dark ">ID</li>
-                                        <li class="list-group-item list-group-item-light ">1</li>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Les détails du profil</h5>                        
+                                    <ul class="list-group">                                                      
+                                        <li class="list-group-item list-group-item-dark">ID</li>
+                                        <li class="list-group-item list-group-item-light">1</li>
 
-                                        <li class="list-group-item list-group-item-dark ">NOM</li>
-                                        <li class="list-group-item list-group-item-light ">Jean</li>
+                                        <li class="list-group-item list-group-item-dark">NOM</li>
+                                        <li class="list-group-item list-group-item-light">Jean</li>
 
-                                        <li class="list-group-item list-group-item-dark ">PRENOM</li>
-                                        <li class="list-group-item list-group-item-light ">Dujardin</li>
-                                    </ul>
+                                        <li class="list-group-item list-group-item-dark">PRENOM</li>
+                                        <li class="list-group-item list-group-item-light">Dujardin</li>
+                                      </ul>
                                     </br>
-                                    <div><input id="btnupdate " type="button " value="Modifier " class="btn-default btn-lg ">
-                                        <input id="btndelete " type="button " value="Supprimer " class="btn-default btn-lg "></div>
+                                      <div><input id="btnupdate" type="button" value="Modifier" class="btn-default btn-lg">
+                                      <input id="btndelete" type="button" value="Supprimer" class="btn-default btn-lg"></div>
 
-
-                                </div>
+                                      
+                            </div>
                             </div>
                         </div>
-                    </div>
+                  </div>
                 </div>
-            </div>
-            <div class="col ">
-                <div class="card mb-3 " style="max-width: 540px; ">
-                    <div class="row g-0 ">
-                        <div class="col-md-4 ">
 
+                <!-- SHOW ADD PROFILE DIV -->
+                <div class="card mb-3 " style="max-width: 540px" id="addForm">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
                         </div>
 
-                        <div class="col-md-8 ">
-                            <div class="card-body ">
-                                <h5 class="card-title fw-bold ">Historique</h5>
+                        <div class="col-md-8 in">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Ajouter un nouveau profil</h5>                        
+                                <ul class="list-group">                                                      
+                                    <li class="list-group-item list-group-item-dark">ID</li>
+                                    <input type="text">
 
-                            </div>
+                                    <li class="list-group-item list-group-item-dark">NOM</li>
+                                    <input type="text" id="nom">
+
+                                    <li class="list-group-item list-group-item-dark">PRENOM</li>
+                                    <input type="text" id="prenom">
+                                  </ul>
+                                </br>
+                                  <div><input id="btnvalid" type="submit" value="Valider" class="btn-default btn-lg"></div>
+
+                                
+                        </div>
                         </div>
                     </div>
+              </div>
+
+              <!-- SHOW LOG DIV -->
+              <div class="card mb-3 " style="max-width: 540px;" id="log">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                   
+                    </div>
+
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Historique</h5>                        
+  
+                    </div>
+                    </div>
                 </div>
+          </div>
+
             </div>
+            <div class="col">
+                
+            </div>
+          </div>
         </div>
     </div>
-    </div>
-
+   
 
 </body>
-<!-- JAVA SCRIPT -->
-<script src="assets/JS/jquery.js "></script>
-<script src="assets/JS/bootstrap.js "></script>
-<script src="assets/JS/main.js "></script>
-<script src="assets/JS/all.js "></script>
+    <!-- JAVA SCRIPT -->
+    <script src="assets/JS/jquery.js"></script>
+    <script src="assets/JS/bootstrap.js"></script>
+    <script src="assets/JS/main.js"></script>
+    <script src="assets/JS/all.js"></script>
 
 
 </html>

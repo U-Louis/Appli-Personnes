@@ -11,6 +11,10 @@ var aPerson;
 var btnLogAction;
 var httpRequest = new XMLHttpRequest();
 var adress = "http://srvapi/api/stagiaire/";
+var nom;
+var prenom;
+var valider;
+var addForm;
 
 
 // fonctions executee au chargement de la page web
@@ -25,9 +29,19 @@ $(document).ready(function() {
     modal = $("#dynamSearch");
     aPerson = [];
     btnLogAction = $("#btnlogaction");
+    nom = $("#nom");
+    prenom = $("#prenom");
+    valider = $("#btnvalid");
+    addForm= $("#addForm");
+    log= $("#log");
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
+    valider.on("click", function() { create(nom, prenom) });
+    btnCreatePerson.on("click",showForm);
+    btnLogAction.on("click",showLog);
+
+
 
 
 
@@ -43,7 +57,23 @@ $(document).ready(function() {
 function recherche(objet) {
 
     $(modal).empty();
-    $(modal).append('<span>' + objet.id + objet.nom + objet.prenom + '</span>');
+    $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
+        objet.prenom + '</td>' + '</tr>' + '</table>');
+    var filter, ul, li, a, i, txtValue;
+
+    ul = document.getElementsByTagName("tr");
+    li = ul.getElementsByTagName('td');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
     // Et on affiche !
 }
 
@@ -64,74 +94,38 @@ function getSearchValue() {
 
 /**
  * Lance une requête avec nb en paramètre puis lance la fonction fct une fois la requête terminée.
- * @function getById
  * @param {Number} nb 
  * @param {Function} fct 
  * CEDRIC
  */
- function getById(nb,fct){/*Prend en en paramètre un nombre et une fonction*/
-    
-    console.log("GET : " + adress + nb);
-    
-    var xhr  = new XMLHttpRequest();
-    
-    xhr.open('GET', adress + nb, true);
-    xhr.send(null);
+function getById(nb, callback) {
 
-    xhr.onload = function () {
+    console.log("GET : " + adress + nb);
+
+    var xhr = new XMLHttpRequest();
+    var aUser = {};
+    xhr.open('GET', adress + nb, true);
+    xhr.send(nb);
+
+    xhr.onload = function() {
         var users = JSON.parse(xhr.responseText);
-        
-        if (xhr.readyState == 4 && xhr.status == "200") {/*vérifie si la requête fonctionne. */
-           
-        fct(users);  /*Lance la fonction fct avec le paramètre users */ 
+
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            for (key in users) {
+                console.table(key + " : " + users[key])
+                aUser[key] = users[key];
+            };
+
+            callback(users);
 
         } else {
             console.error(users);
         }
     }
-}
-/**
- * getListOfMember envoie la requête pour récupérer la liste des stagiaire 
- * et si  la requête aboutit active la fonction fct avec users passé en paramètre. 
- * @function getListOfMember 
- * @param {Fonction} fct 
- */
- function getListOfMember(fct){
-
-    console.log("GET : " + "http://srvapi/api/stagiaires");
-    var xhr  = new XMLHttpRequest();
-    xhr.open('GET', "http://srvapi/api/stagiaires", true);
-        xhr.send(null);
-
-        xhr.onload = function () {
-            var users = JSON.parse(xhr.responseText);
-            
-            if (xhr.readyState == 4 && xhr.status == "200") {/*vérifie si la requête fonctionne. */
-               
-            fct(users);  /*Lance la fonction fct avec le paramètre users */ 
-
-            } else {
-                console.error(users);
-            }
-        }
+    recherche(aUser);
+    return aUser;
 
 }
-/**Ecrit la liste des membres dans une div.
- * @function writeListeOfMember
- * @param {Object} object 
- */
-function writeListeOfMember(object){
-    
-    
-    for(key in object){
-        var p = document.createElement("p")
-        p.setAttribute("id",object[key].id)
-        $("#listofmember").append(p);
-        $("#" + object[key].id).html("id : " + object[key].id +"  nom : " + object[key].nom + "  prenom : " + object[key].prenom)  ;
-        
-    }
-}
-
 
 /**
  * function create permet d'ajouter une nouvelle personne à la BDD 
@@ -165,3 +159,22 @@ function create(nom, prenom) {
     }
 }
 
+function showForm(){          
+        if(addForm.is(':hidden'))
+         {
+           addForm.show('slow');
+           log.hide('slow');
+         }else{
+           addForm.hide('slow');
+         }
+}
+
+function showLog(){
+    if(log.is(':hidden'))
+    {
+      log.show('slow');
+      addForm.hide('slow');
+    }else{
+      log.hide('slow');
+    }
+}
