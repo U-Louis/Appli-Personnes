@@ -4,6 +4,15 @@ body {
     background-image: linear-gradient(rgb(209, 196, 155), rgb(165, 165, 161));
 }
 
+.visible {
+    display: auto;
+}
+
+.invisible {
+    display: none;
+}
+
+
 /* ========================================================== CONTAINER ========================================================== */
 
 .container {
