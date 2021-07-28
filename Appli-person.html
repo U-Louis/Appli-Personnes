@@ -110,7 +110,7 @@
                 <!-- SHOW SEARCH DIV -->
                 <div class="d-flex position-relative">
 
-                    <div class="card mb-3 invisible" style="max-width: 540px;">
+                    <div class="card mb-3 d-none" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
                             <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
@@ -124,13 +124,13 @@
                                 <h5 class="card-title fw-bold">Les détails du profil</h5>                        
                                     <ul class="list-group">                                                      
                                         <li class="list-group-item list-group-item-dark">ID</li>
-                                        <li class="list-group-item list-group-item-light">1</li>
+                                        <li id="showId" class="list-group-item list-group-item-light"></li>
 
                                         <li class="list-group-item list-group-item-dark">NOM</li>
-                                        <li class="list-group-item list-group-item-light">Jean</li>
+                                        <li id="showNom" class="list-group-item list-group-item-light"></li>
 
                                         <li class="list-group-item list-group-item-dark">PRENOM</li>
-                                        <li class="list-group-item list-group-item-light">Dujardin</li>
+                                        <li id="showPrenom" class="list-group-item list-group-item-light"></li>
                                       </ul>
                                     </br>
                                       <div><input id="btnupdate" type="button" value="Modifier" class="btn-default btn-lg">
@@ -144,7 +144,7 @@
                 </div>
 
                 <!-- SHOW ADD PROFILE DIV -->
-                <div class="card mb-3 " style="max-width: 540px" id="addForm">
+                <div class="card mb-3 d-none" style="max-width: 540px" id="addForm">
                     <div class="row g-0">
                         <div class="col-md-4">
                         <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
@@ -173,7 +173,7 @@
               </div>
 
               <!-- SHOW LOG DIV -->
-              <div class="card mb-3 " style="max-width: 540px;" id="log">
+              <div class="card mb-3 invisible " style="max-width: 540px;" id="log">
                 <div class="row g-0">
                     <div class="col-md-4">
                    
