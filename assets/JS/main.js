@@ -86,7 +86,7 @@ function getSearchValue() {
         fct(users);  /*Lance la fonction fct avec le paramètre users */ 
 
         } else {
-            console.error(users);
+            console.error("L'identifiant que vous avez tapez n'est pas dans la base de donnée.");
         }
     }
 }
@@ -95,6 +95,7 @@ function getSearchValue() {
  * et si  la requête aboutit active la fonction fct avec users passé en paramètre. 
  * @function getListOfMember 
  * @param {Fonction} fct 
+ * CEDRIC
  */
  function getListOfMember(fct){
 
@@ -119,6 +120,7 @@ function getSearchValue() {
 /**Ecrit la liste des membres dans une div.
  * @function writeListeOfMember
  * @param {Object} object 
+ * CEDRIC
  */
 function writeListeOfMember(object){
     
@@ -131,8 +133,24 @@ function writeListeOfMember(object){
         
     }
 }
-getListOfMember(writeListeOfMember);
-//Déclaration des variables 
+/**
+ * @function delUser
+ * @param {Int} nb 
+ */
+function delUser(nb){
+    console.log("DELETE : " + adress + nb);
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", adress + nb, true);
+    xhr.send(null);
+
+    xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status == "202") {
+            console.log("Suppression réussie");
+        } else {
+            console.error("PB Suppression la personne à l'id sélectionné n'existe pas");
+        }
+    }
+}
 
 /**
  * function create permet d'ajouter une nouvelle personne à la BDD 
