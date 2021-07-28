@@ -14,6 +14,9 @@ var adress = "http://srvapi/api/stagiaire/";
 var nom;
 var prenom;
 var valider;
+var showId;
+var showNom;
+var showPrenom;
 
 
 // fonctions executee au chargement de la page web
@@ -31,6 +34,10 @@ $(document).ready(function() {
     nom = $("#nom");
     prenom = $("#prenom");
     valider = $("#btnvalid");
+    showId = $("#showId");
+    showNom = $("#showNom");
+    showPrenom = $("#showPrenom");
+
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
@@ -50,9 +57,17 @@ $(document).ready(function() {
  */
 function recherche(objet) {
 
-    $(modal).empty();
-    $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
-        objet.prenom + '</td>' + '</tr>' + '</table>');
+    $(showId).empty();
+    // $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
+    //     objet.prenom + '</td>' + '</tr>' + '</table>');
+    $(showId).append(objet.id);
+    $(showNom).empty();
+    $(showNom).append(objet.nom);
+    $(showPrenom).empty();
+    $(showPrenom).append(objet.prenom);
+
+
+
 
     // Et on affiche !
 }
@@ -116,16 +131,16 @@ function getById(nb, callback) {
 // ADD A USER
 
 function create(nom, prenom) {
-    console.log("POST : " + url);
+    console.log("POST : " + adress);
 
     var data = {};
-    data.nom = "TERRIEUR";
-    data.prenom = "Alex";
+    data.nom = nom;
+    data.prenom = prenom;
     // var data = {"nom":"TERRIEUR","prenom":"Alex"};
     var json = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
+    xhr.open("POST", adress, true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.send(json);
 
