@@ -47,7 +47,9 @@
 
         <!-- CENTRAL DIV -->
         <div class="row">
-            <div class="col1"></div>
+            <div class="col1">
+
+            </div>
 
             <div class="central_div d-flex align-items-center justify-content-center flex-wrap">
                 <div class="d-flex flex-column justify-content-center align-items-center">
@@ -57,21 +59,21 @@
                     <!-- RADIO -->
                     <div class="d-flex flex-direction-row">
                         <div class="ch1 form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
                         <label class="form-check-label" for="flexRadioDefault1">
                         ID
                         </label>
                         </div>
 
                         <div class="ch2 form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                         NOM
                         </label>
                         </div>
 
                         <div class="ch3 form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                         PRENOM
                         </label>
@@ -85,34 +87,14 @@
                     <div class="col">
                         <div class="searchDiv">
                         <form class="search_form d-flex">
-                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  onkeyup="myFunction()">
                         </form></div>
                     </div>
                     
-                    <!-- MODAL SEARCH -->
-                    <div id="dynamSearch">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Prénom</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">ID</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td scope="row">Jean</td>
-                            <td scope="col">Dujardin</td>
-                            <td scope="col">1</td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Laure</td>
-                            <td scope="col">Manaudou</td>
-                            <td scope="col">2</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </div>
+                      <div id="dynamSearch" class="list-group">
+                        
+                      </div>
+                      
                 </div>
             </div>   
         </div>
@@ -121,7 +103,33 @@
         <!-- PROFILE DIV -->
         <div class="profile_div row align-items-end">
             <div class="col">
-              
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Ajouter un nouveau profil</h5>                        
+                                <ul class="list-group">                                                      
+                                    <li class="list-group-item list-group-item-dark">ID</li>
+                                    <input type="text">
+
+                                    <li class="list-group-item list-group-item-dark">NOM</li>
+                                    <input type="text" id="nom">
+
+                                    <li class="list-group-item list-group-item-dark">PRENOM</li>
+                                    <input type="text" id="prenom">
+                                  </ul>
+                                </br>
+                                  <div><input id="btnvalid" type="submit" value="Valider" class="btn-default btn-lg"></div>
+
+                                
+                        </div>
+                        </div>
+                    </div>
+              </div>
             </div>
             <div class="col">
                 <div class="d-flex position-relative">
@@ -149,7 +157,7 @@
                                       <div><input id="btnupdate" type="button" value="Modifier" class="btn-default btn-lg">
                                       <input id="btndelete" type="button" value="Supprimer" class="btn-default btn-lg"></div>
 
-                                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                      
                             </div>
                             </div>
                         </div>
@@ -157,53 +165,32 @@
                 </div>
             </div>
             <div class="col">
-              
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                       
+                        </div>
+
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Historique</h5>                        
+      
+                        </div>
+                        </div>
+                    </div>
+              </div>
             </div>
           </div>
         </div>
     </div>
-            
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-
-<ul id="myUL">
-  <li><a href="#">Adele</a></li>
-  <li><a href="#">Agnes</a></li>
-
-  <li><a href="#">Billy</a></li>
-  <li><a href="#">Bob</a></li>
-
-  <li><a href="#">Calvin</a></li>
-  <li><a href="#">Christina</a></li>
-  <li><a href="#">Cindy</a></li>
-</ul>
-
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-}
-</script>
+   
 
 </body>
     <!-- JAVA SCRIPT -->
+    <script src=""></script>
     <script src="assets/JS/bootstrap.js"></script>
     <script src="assets/JS/main.js"></script>
     <script src="assets/JS/all.js"></script>
-    <script src="Appli-Personnes\assets\JS\searchtest.js"></script>
+
 
 </html>
