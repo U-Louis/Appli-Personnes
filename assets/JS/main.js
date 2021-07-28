@@ -131,8 +131,7 @@ function writeListeOfMember(object){
         
     }
 }
-getListOfMember(writeListeOfMember);
-//Déclaration des variables 
+
 
 /**
  * function create permet d'ajouter une nouvelle personne à la BDD 
