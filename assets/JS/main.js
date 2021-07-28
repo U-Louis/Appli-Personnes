@@ -4,14 +4,22 @@ var httpRequest;
 var btnCreatePerson;
 var btnDeletePerson;
 var btnUpdatePerson;
-var btnReadList;
 var btnReadPerson;
+var btnReadList;
 var searchBar;
 var modal;
 var aPerson;
 var btnLogAction;
 var httpRequest = new XMLHttpRequest();
 var adress = "http://srvapi/api/stagiaire/";
+var nom;
+var prenom;
+var valider;
+var showId;
+var showNom;
+var showPrenom;
+var addForm;
+var addLog;
 
 
 // fonctions executee au chargement de la page web
@@ -21,15 +29,26 @@ $(document).ready(function() {
     btnCreatePerson = $("#btncreateperson");
     btnDeletePerson = $("#btndelete");
     btnUpdatePerson = $("#btnupdate");
-    btnReadList = $("#btnread");
+    btnReadlist = $("#btnread");
     searchBar = $("#search");
     modal = $("#dynamSearch");
     aPerson = [];
     btnLogAction = $("#btnlogaction");
+    nom = $("#nom");
+    prenom = $("#prenom");
+    valider = $("#btnvalid");
+    showId = $("#showId");
+    showNom = $("#showNom");
+    showPrenom = $("#showPrenom");
+    addForm= $("#addForm");
+    addLog= $("#log");
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
     btnReadList.click(function(){getListOfMember(writeListeOfMember)});
+    btnCreatePerson.on("click",showForm);
+    btnLogAction.on("click",showLog);
+
     
 
 
@@ -42,12 +61,16 @@ $(document).ready(function() {
  * @returns {number, string, string} id, nom et prénom de l'objet "stagiaire"
  * AURELIE & FLAVIE
  */
-function recherche(objet) {
+ function recherche(objet) {
 
-    $(modal).empty();
-    $(modal).append('<span>' + objet.id + objet.nom + objet.prenom + '</span>');
-    // Et on affiche !
-}
+    $(showId).empty();
+    // $(modal).append('<table>' + '<tr>' + '<td>' + "<strong>ID</strong> : " + objet.id + '</td>' + '<td>' + "     <strong>Nom</strong> : " + objet.nom + '</td>' + '<td>' + "    <strong>Prénom</strong> : " +
+    //     objet.prenom + '</td>' + '</tr>' + '</table>');
+    $(showId).append(objet.id);
+    $(showNom).empty();
+    $(showNom).append(objet.nom);
+    $(showPrenom).empty();
+    $(showPrenom).append(objet.prenom);
 
 
 /**
@@ -189,3 +212,37 @@ function create(nom, prenom) {
     }
 }
 
+
+/** function showForm permet d'afficher formulaire de creation de profil 
+ * Clement et Beata
+ */ 
+function showForm(){       
+    var flag = false;
+
+        if(flag == false){
+           addForm.removeClass("d-none")
+           addForm.addClass("d-flex")
+           flag = true;
+         }else{
+           addForm.removeClass("d-flex")
+           addForm.addClass("d-none")
+            flag = false;
+         }
+}
+
+/** function showLog permet d'afficher formulaire de creation de profil 
+ * Clement et Beata
+ */
+function showLog(){
+    var flag = false;
+
+    if(flag == false){
+        addLog.removeClass("d-none")
+        addLog.addClass("d-flex")
+       flag = true;
+     }else{
+        addLog.removeClass("d-flex")
+        addLog.addClass("d-none")
+        flag = false;
+     }
+}
