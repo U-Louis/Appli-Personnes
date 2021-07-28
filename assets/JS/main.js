@@ -10,7 +10,7 @@ var modal;
 var aPerson;
 var btnLogAction;
 var httpRequest = new XMLHttpRequest();
-var adress = "http://srvapi/api/stagiaire/";
+var adress = "http://srvapi/api/stagiaire";
 var nom;
 var prenom;
 var valider;
@@ -38,14 +38,14 @@ $(document).ready(function() {
     showId = $("#showId");
     showNom = $("#showNom");
     showPrenom = $("#showPrenom");
-    addForm= $("#addForm");
-    log= $("#log");
+    addForm = $("#addForm");
+    log = $("#log");
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
-    valider.on("click", function() { create(nom, prenom) });
-    btnCreatePerson.on("click",showForm);
-    btnLogAction.on("click",showLog);
+    valider.on("click", getCreateNom);
+    btnCreatePerson.on("click", showForm);
+    btnLogAction.on("click", showLog);
 
 
 
@@ -54,6 +54,13 @@ $(document).ready(function() {
 });
 
 // -------------- FUNCTIONS ----------------------
+
+function getCreateNom() {
+    var name = $(nom).val();
+    var surname = $(prenom).val();
+    create(adress, name, surname);
+}
+
 /**
  * @function recherche appelle la fonction getById qui affiche le resultat de la recherche dans un modal en dessous de la barre.
  * @param {Object} objet "stagiaire" récupéré par la requête AJAX
@@ -95,11 +102,11 @@ function getSearchValue() {
  */
 function getById(nb, callback) {
 
-    console.log("GET : " + adress + nb);
+    console.log("GET : " + adress + "/" + nb);
 
     var xhr = new XMLHttpRequest();
     var aUser = {};
-    xhr.open('GET', adress + nb, true);
+    xhr.open('GET', adress + "/" + nb, true);
     xhr.send(nb);
 
     xhr.onload = function() {
@@ -130,12 +137,13 @@ function getById(nb, callback) {
 
 // ADD A USER
 
-function create(nom, prenom) {
+function create(adress, name, surname) {
     console.log("POST : " + adress);
 
     var data = {};
-    data.nom = nom;
-    data.prenom = prenom;
+    data.nom = name;
+    console.log(data.nom);
+    data.prenom = surname;
     // var data = {"nom":"TERRIEUR","prenom":"Alex"};
     var json = JSON.stringify(data);
 
@@ -154,22 +162,20 @@ function create(nom, prenom) {
     }
 }
 
-function showForm(){          
-        if(addForm.is(':hidden'))
-         {
-           addForm.show('slow');
-           log.hide('slow');
-         }else{
-           addForm.hide('slow');
-         }
+function showForm() {
+    if (addForm.is(':hidden')) {
+        addForm.show('slow');
+        log.hide('slow');
+    } else {
+        addForm.hide('slow');
+    }
 }
 
-function showLog(){
-    if(log.is(':hidden'))
-    {
-      log.show('slow');
-      addForm.hide('slow');
-    }else{
-      log.hide('slow');
+function showLog() {
+    if (log.is(':hidden')) {
+        log.show('slow');
+        addForm.hide('slow');
+    } else {
+        log.hide('slow');
     }
 }
