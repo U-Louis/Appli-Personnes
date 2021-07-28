@@ -1,5 +1,6 @@
 // ADD A USER
-var create = $("#create");
+(function(){
+    var create = $("#create");
 $(create).on("click", create);
 
 function create(url) {
@@ -24,4 +25,5 @@ function create(url) {
             console.error(user);
         }
     }
-}
+    }
+})

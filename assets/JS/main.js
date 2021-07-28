@@ -43,6 +43,33 @@ function getById(nb,fct){/*Prend en en paramètre un nombre et une fonction*/
     
 
 }
+/**
+ * getListOfMember envoie la requête pour récupérer la liste des stagiaire 
+ * et si  la requête aboutit active la fonction fct avec users passé en paramètre.  
+ * @param {Fonction} fct 
+ */
+function getListOfMember(fct){
+    
+    console.log("GET : " + "http://srvapi/api/stagiaires");
+    var xhr  = new XMLHttpRequest();
+    xhr.open('GET', "http://srvapi/api/stagiaires", true);
+        xhr.send(null);
+
+        xhr.onload = function () {
+            var users = JSON.parse(xhr.responseText);
+            
+            if (xhr.readyState == 4 && xhr.status == "200") {/*vérifie si la requête fonctionne. */
+               
+            fct(users);  /*Lance la fonction fct avec le paramètre users */ 
+
+            } else {
+                console.error(users);
+            }
+        }
+
+}
+   
+
 
 
 
