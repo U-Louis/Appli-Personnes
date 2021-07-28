@@ -103,41 +103,20 @@
         <!-- PROFILE DIV -->
         <div class="profile_div row align-items-end">
             <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                        <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-
-                        <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Ajouter un nouveau profil</h5>                        
-                                <ul class="list-group">                                                      
-                                    <li class="list-group-item list-group-item-dark">ID</li>
-                                    <input type="text">
-
-                                    <li class="list-group-item list-group-item-dark">NOM</li>
-                                    <input type="text" id="nom">
-
-                                    <li class="list-group-item list-group-item-dark">PRENOM</li>
-                                    <input type="text" id="prenom">
-                                  </ul>
-                                </br>
-                                  <div><input id="btnvalid" type="submit" value="Valider" class="btn-default btn-lg"></div>
-
-                                
-                        </div>
-                        </div>
-                    </div>
-              </div>
+                
             </div>
             <div class="col">
+
+                <!-- SHOW SEARCH DIV -->
                 <div class="d-flex position-relative">
 
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3 invisible" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
                             <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div id="listofmember" class="overflow-auto" >
+
                             </div>
 
                             <div class="col-md-8">
@@ -163,22 +142,55 @@
                         </div>
                   </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
+
+                <!-- SHOW ADD PROFILE DIV -->
+                <div class="card mb-3 " style="max-width: 540px" id="addForm">
                     <div class="row g-0">
                         <div class="col-md-4">
-                       
+                        <img src="assets/media/affiche-voulue-avec-la-récompense-27397378.png" class="img-fluid rounded-start" alt="...">
                         </div>
 
-                        <div class="col-md-8">
+                        <div class="col-md-8 in">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">Historique</h5>                        
-      
+                            <h5 class="card-title fw-bold">Ajouter un nouveau profil</h5>                        
+                                <ul class="list-group">                                                      
+                                    <li class="list-group-item list-group-item-dark">ID</li>
+                                    <input type="text">
+
+                                    <li class="list-group-item list-group-item-dark">NOM</li>
+                                    <input type="text" id="nom">
+
+                                    <li class="list-group-item list-group-item-dark">PRENOM</li>
+                                    <input type="text" id="prenom">
+                                  </ul>
+                                </br>
+                                  <div><input id="btnvalid" type="submit" value="Valider" class="btn-default btn-lg"></div>
+
+                                
                         </div>
                         </div>
                     </div>
               </div>
+
+              <!-- SHOW LOG DIV -->
+              <div class="card mb-3 " style="max-width: 540px;" id="log">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                   
+                    </div>
+
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Historique</h5>                        
+  
+                    </div>
+                    </div>
+                </div>
+          </div>
+
+            </div>
+            <div class="col">
+                
             </div>
           </div>
         </div>
@@ -187,7 +199,7 @@
 
 </body>
     <!-- JAVA SCRIPT -->
-    <script src=""></script>
+    <script src="assets/JS/jquery.js"></script>
     <script src="assets/JS/bootstrap.js"></script>
     <script src="assets/JS/main.js"></script>
     <script src="assets/JS/all.js"></script>
