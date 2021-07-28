@@ -12,9 +12,5 @@
 `function BDD()`  
 `var adress = http://srvapi/api/stagiaire/`
 # Liste des fonctions
-`function getById(nb)` renvoie un objet avec les attributs id, nom, prenom.  
-Exemple: 
-`var obj = getById(92);`
-`console.log(obj.nom)` affiche la valeur de l'attribut nom.
-`console.log(obj.prenom)` affiche la valeur de l'attribut prenom.
-`console.log(obj.id)` affiche la valeur de l'attribut id.
+`function getById(nb,fct)` Envoie une requête avec nb en paramètre, et une fonction fct. fct sera lancé lorsque la requête sera terminé.  
+
