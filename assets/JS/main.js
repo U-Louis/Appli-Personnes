@@ -9,45 +9,41 @@
     // var modal = $("")  ;  
     // var btnLogAction = $("btnlogaction");
 
-var aPerson = [];
+var aPerson = {};
 
 var adress = "http://srvapi/api/stagiaire/"
 
 /**
- * Récupère l'identifiant, le nom et le prénom de la cible par son identifiant
+ * Lance une requête avec nb en paramètre puis lance la fonction fct une fois la requête terminé.
  * @param {Number} nb 
- * @returns {Object} 
+ * @param {Function} fct 
+ * 
  */
-function getById(nb){
+function getById(nb,fct){/*Prend en en paramètre un nombre et une fonction*/
     
         console.log("GET : " + adress + nb);
         
         var xhr  = new XMLHttpRequest();
-        var aUser ={};
+        
         xhr.open('GET', adress + nb, true);
         xhr.send(null);
 
         xhr.onload = function () {
             var users = JSON.parse(xhr.responseText);
             
-            if (xhr.readyState == 4 && xhr.status == "200") {
-                for(key in users){
-                    // console.table(key + " : " +users[key])
-                    aUser[key]=users[key];
-                };
-                
+            if (xhr.readyState == 4 && xhr.status == "200") {/*vérifie si la requête fonctionne. */
+               
+            fct(users);  /*Lance la fonction fct avec le paramètre users */ 
+
             } else {
                 console.error(users);
             }
         }
-        return aUser;
+        
     
 
 }
 
-var a = getById(92);
-console.log(a.id);
-console.log(a.nom);
-console.log(a.prenom);
+
 
 
