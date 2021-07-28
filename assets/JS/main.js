@@ -116,16 +116,53 @@ function getSearchValue() {
         }
 
 }
-
+/**Ecrit la liste des membres dans une div.
+ * @function writeListeOfMember
+ * @param {Object} object 
+ */
 function writeListeOfMember(object){
     
     
     for(key in object){
         var p = document.createElement("p")
         p.setAttribute("id",object[key].id)
-        $("#tableau").append(p);
+        $("#listofmember").append(p);
         $("#" + object[key].id).html("id : " + object[key].id +"  nom : " + object[key].nom + "  prenom : " + object[key].prenom)  ;
         
     }
 }
 getListOfMember(writeListeOfMember);
+//Déclaration des variables 
+
+/**
+ * function create permet d'ajouter une nouvelle personne à la BDD 
+ * @param {string,string}  résultat input nom et prénom après submit du formulaire de création
+ * AURELIE ET FLAVIE
+ */
+
+// ADD A USER
+
+function create(nom, prenom) {
+    console.log("POST : " + url);
+
+    var data = {};
+    data.nom = "TERRIEUR";
+    data.prenom = "Alex";
+    // var data = {"nom":"TERRIEUR","prenom":"Alex"};
+    var json = JSON.stringify(data);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.send(json);
+
+    xhr.onload = function() {
+        var user = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "201") {
+            console.table(user);
+        } else {
+            console.error(user);
+        }
+    }
+}
+
