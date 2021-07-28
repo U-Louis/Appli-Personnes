@@ -20,7 +20,7 @@ $(document).ready(function() {
     btnCreatePerson = $("#btncreateperson");
     btnDeletePerson = $("#btndelete");
     btnUpdatePerson = $("#btnupdate");
-    btnReadPerson = $("#btnread");
+    btnReadList = $("#btnread");
     searchBar = $("#search");
     modal = $("#dynamSearch");
     aPerson = [];
@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
-
+    btnReadList.click(function(){getListOfMember(writeListeOfMember)});
 
 
 });
