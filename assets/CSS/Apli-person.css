@@ -1,0 +1,108 @@
+/* ========================================================== START ============================================================== */
+
+body {
+    background-image: linear-gradient(rgb(209, 196, 155), rgb(165, 165, 161));
+}
+
+/* ========================================================== CONTAINER ========================================================== */
+
+.container {
+    padding: 20px !important;
+}
+
+
+/* ========================================================== MAIN DIV =========================================================== */
+
+/* BUTTONS */
+.buttons_div {
+    margin-right: 15px !important;
+}
+
+.col1 {
+    max-width: 120px;
+}
+
+.btnlog {
+    padding: 1% !important;
+    box-shadow: 2px 2px 10px 2px #000000;
+    width: 110px !important;
+    
+}
+
+.btnaffichage {
+    padding: 1% !important;
+    box-shadow: 2px 2px 10px 2px #000000;
+    width: 110px !important;
+}
+
+.btncreate {
+    width: 50px !important;
+    height: 30px;
+    box-shadow: 2px 2px 10px 2px #000000;
+    width: 110px !important;
+}
+
+/* TITLE */
+.col2 {
+    margin-left: 15px !important;
+    height: 170px;
+    width: 80%;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+
+    background-color: rgb(191, 196, 199);
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.text {
+    font-family: 'Smokum', cursive;
+
+    background: linear-gradient(
+        to right, 
+        rgb(167, 167, 167), 
+        rgb(255, 255, 255)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+
+    text-shadow: 2px 2px #000000;
+
+}
+
+/* ========================================================== CENTRAL DIV =========================================================== */
+/* CENTRAL DIV */
+
+.central_div {
+    margin-top: 80px !important;
+}
+
+/* RADIO form check */
+.ch2, .ch3 {
+    margin-left: 20px !important;
+}
+
+/* SEARCH */
+.search_form {
+    margin-top: 5px !important;
+    display: flex;
+}
+
+/* ========================================================== PROFILE =============================================================== */
+/* PROFILE */
+
+.profile_div {
+    margin-top: 60px !important;
+}
+
+.card-body {
+    margin-top: 3px !important;
+}
+
+.card {
+    background-color: transparent !important;
+}
+
+/* ========================================================== END ============================================================== */
