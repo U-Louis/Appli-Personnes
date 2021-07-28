@@ -1,0 +1,9 @@
+travaile en binome/extrem programing :
+Intéressant et constructif : avoir un regard extérieur sur son code, deux cerveaux = 2x plus de stratégies possibles, apprendre à expliquer ses intentions / ce que l'on fait à l'instant t.
+Frustrant : accepter de ne pas tout maîtriser
+
+travail en équipe :
+A travailler : Problème de syncrhonisation des fichiers,
+attention à ne pas pusher ce qui ne fonctionne pas encore
+frustrant de s'interrompre dans une tâche complexe pour faire un point ou répondre à une question + de changer de tâche car priorités changent aux cours du projet
+Mais bénéfique car chacun apporte ses compétences particulières et l'échange des points de vue permet d'avancer. ==> peut-être passer plus de temps sur : se mettre d'accord sur le but final de chaque tâche (affichage où, comment, quand), avant de se lancer dans le code

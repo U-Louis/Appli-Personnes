@@ -18,6 +18,7 @@ var showId;
 var showNom;
 var showPrenom;
 var addForm;
+var addLog;
 
 
 // fonctions executee au chargement de la page web
@@ -38,18 +39,13 @@ $(document).ready(function() {
     showId = $("#showId");
     showNom = $("#showNom");
     showPrenom = $("#showPrenom");
-    addForm = $("#addForm");
-    log = $("#log");
+
 
     // Add Event
     searchBar.on("keyup", getSearchValue);
     valider.on("click", getCreateNom);
     btnCreatePerson.on("click", showForm);
     btnLogAction.on("click", showLog);
-
-
-
-
 
 });
 
@@ -162,20 +158,5 @@ function create(adress, name, surname) {
     }
 }
 
-function showForm() {
-    if (addForm.is(':hidden')) {
-        addForm.show('slow');
-        log.hide('slow');
-    } else {
-        addForm.hide('slow');
-    }
-}
 
-function showLog() {
-    if (log.is(':hidden')) {
-        log.show('slow');
-        addForm.hide('slow');
-    } else {
-        log.hide('slow');
-    }
-}
+
